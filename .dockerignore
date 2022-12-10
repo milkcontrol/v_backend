@@ -1,0 +1,13 @@
+Dockerfile*
+docker-compose*.yml
+node_modules
+./build
+./mysql
+./.git
+*.example
+.editorconfig
+.dockerignore
+./.github
+./.ide
+./docs
+entrypoint.sh

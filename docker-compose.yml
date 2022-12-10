@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  redis:
+    container_name: redis-v-live
+    image: redis:6.2.6-alpine
+    restart: always
+    command:
+      - --loglevel warning
+    ports:
+      - "0.0.0.0:63790:6379"
+  db:
+    container_name: mysql-v-live
+    image: mysql:5.7
+    restart: always
+    platform: linux/x86_64 # for mac m1
+    env_file:
+      - .env
+    environment:
+     - MYSQL_ROOT_PASSWORD=wF4rf2xOBHFlH7o
+     - MYSQL_DATABASE=${DB_NAME}
+     - MYSQL_USER=${DB_USER}
+     - MYSQL_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./mysql:/var/lib/mysql
+    logging:
+      driver: none
+    ports:
+      - "0.0.0.0:33060:3306"
+volumes:
+  ignore:

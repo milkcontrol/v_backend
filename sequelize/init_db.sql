@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS `v_live` DEFAULT CHARACTER SET utf8mb4;
+CREATE TABLE IF NOT EXISTS `v_live`.`SequelizeMeta` (
+   `name` VARCHAR(255) NOT NULL,
+   PRIMARY KEY (`name`)
+);
