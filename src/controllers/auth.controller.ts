@@ -648,7 +648,6 @@ export namespace AuthController {
   ) => {
     try{
       const url = "https://www.google.com/accounts/Logout"
-      console.log('adsdsad', req.jwtDecode?.sub);
       
       const dataToken = await tokens.findOne({where:{userId: req.jwtDecode?.sub}})
       await axios.post(`https://oauth2.googleapis.com/revoke?token=${dataToken?.refreshToken}`,{
